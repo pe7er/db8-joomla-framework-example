@@ -2,6 +2,7 @@
     "require": {
         "joomla/database": "~3.0",
         "joomla/application": "~3.0",
-        "joomla/registry": "~3.0"
+        "joomla/registry": "~3.0",
+        "vlucas/phpdotenv": "^5.6"
     }
 }

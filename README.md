@@ -37,23 +37,20 @@ composer install
 ```
 
 ## Configuration
-Open index.php and update the database config inside the `$databaseConfig` array.
-> ⚠️ **Warning:** Never commit sensitive credentials to version control. Use `.env` or config files in production!
+Copy the `.env.example` to `.env` and change the database credentials
+```txt
+# Database settings
+DB_DRIVER=mysqli
+DB_HOST=your_host_like_localhost
+DB_USER=your_database_user
+DB_PASSWORD=your_database_password
+DB_NAME=your_joomla_database
+DB_PORT=3306
+DB_SOCKET=
+DB_PREFIX=your_database_table_prefix
 
-```php
-$databaseConfig = [
-    'database' => [
-        'driver' => 'mysqli',
-        'host' => 'localhost',
-        'user' => 'your_db_user',
-        'password' => 'your_db_password',
-        'name' => 'your_joomla_db',
-        'port' => '3306',
-        'socket' => '',
-        'prefix' => 'jos_', // Change if your table prefix is different
-    ],
-    'catId' => 11 // ID of the category you want to display articles from
-];
+# Content settings
+CATEGORY_ID=your_category_id
 ```
 
 ## Usage
