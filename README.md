@@ -1,9 +1,7 @@
-# Display Joomla Articles with the Joomla Framework (Headless, No CMS)
-
+# Display Joomla Articles Headless using the Joomla Framework
 This example project demonstrates how to use the Joomla Framework 
 (without the full Joomla CMS) to display articles 
 from a specific category in a standalone PHP application.
-
 It uses Joomla's database package to connect to an existing Joomla database and fetch content 
 directly — ideal for headless or microservice-style use cases.
 
@@ -65,7 +63,7 @@ Then visit: http://localhost:8000
 You should see a Bootstrap-styled list of articles from your Joomla database.
 
 ## Sample Output
-
+![sample](https://github.com/user-attachments/assets/5055ef38-9946-43ca-9ced-14be0ffcfc49)
 
 ## Joomla Framework Reference
 - Website: https://framework.joomla.org/
