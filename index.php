@@ -41,30 +41,14 @@ class Db8JoomlaFrameworkExample extends AbstractApplication
 {
     protected Database\DatabaseDriver $db;
 
-    /*
-     * We do not call parent::__construct($config) but instead bootstrap manually using the boot() method.
-     */
     /**
      * @param \Joomla\Registry\Registry $config
      */
     public function __construct(Registry $config)
     {
         $this->config = $config;
-    }
 
-    /**
-     * @return void
-     */
-    public function boot(): void
-    {
-        try {
-            $this->initialise();
-            $this->doExecute();
-        } catch (\Throwable $e) {
-            error_log($e->getMessage());
-            http_response_code(500);
-            echo "<div class='alert alert-danger text-center'>An internal error occurred.</div>";
-        }
+        parent::__construct($config);
     }
 
     /**
@@ -74,14 +58,8 @@ class Db8JoomlaFrameworkExample extends AbstractApplication
     protected function initialise(): void
     {
         $dbFactory = new Database\DatabaseFactory;
-
-        // Convert the entire Registry object to a clean array
         $databaseConfig = $this->config->toArray()['database'] ?? [];
-
-        $this->db = $dbFactory->getDriver(
-            $databaseConfig['driver'],
-            $databaseConfig
-        );
+        $this->db = $dbFactory->getDriver($databaseConfig['driver'], $databaseConfig);
     }
 
     /**
@@ -154,4 +132,4 @@ HTML;
 
 $config = new Registry($db8Config);
 $app = new Db8JoomlaFrameworkExample($config);
-$app->boot();
+$app->execute();
